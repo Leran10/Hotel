@@ -1,0 +1,192 @@
+CREATE DATABASE  IF NOT EXISTS `hmsdb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `hmsdb`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: hmsawsinstance.cx89ylpx3sua.us-east-1.rds.amazonaws.com    Database: hmsdb
+-- ------------------------------------------------------
+-- Server version	5.6.35-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `billing`
+--
+
+DROP TABLE IF EXISTS `billing`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `billing` (
+  `confNum` int(10) NOT NULL,
+  `charge` varchar(45) NOT NULL,
+  `price` int(10) NOT NULL,
+  PRIMARY KEY (`confNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `billing`
+--
+
+LOCK TABLES `billing` WRITE;
+/*!40000 ALTER TABLE `billing` DISABLE KEYS */;
+/*!40000 ALTER TABLE `billing` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employeeLogin`
+--
+
+DROP TABLE IF EXISTS `employeeLogin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employeeLogin` (
+  `userName` varchar(50) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `empName` varchar(45) NOT NULL,
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employeeLogin`
+--
+
+LOCK TABLES `employeeLogin` WRITE;
+/*!40000 ALTER TABLE `employeeLogin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employeeLogin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate`
+--
+
+DROP TABLE IF EXISTS `rate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rate` (
+  `day` varchar(12) NOT NULL,
+  `rate` int(3) NOT NULL,
+  PRIMARY KEY (`day`),
+  UNIQUE KEY `idrate_UNIQUE` (`day`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate`
+--
+
+LOCK TABLES `rate` WRITE;
+/*!40000 ALTER TABLE `rate` DISABLE KEYS */;
+INSERT INTO `rate` VALUES ('friday',200),('monday',150),('saturday',200),('sunday',100),('thursday',150),('tuesday',150),('wednesday',150);
+/*!40000 ALTER TABLE `rate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reservation`
+--
+
+DROP TABLE IF EXISTS `reservation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reservation` (
+  `confNum` int(10) NOT NULL,
+  `status` varchar(1) DEFAULT NULL,
+  `checkIN` date NOT NULL,
+  `checkOUT` date NOT NULL,
+  `bed` varchar(45) NOT NULL,
+  `numGuest` int(2) NOT NULL,
+  `fName` varchar(45) NOT NULL,
+  `lName` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone` varchar(45) NOT NULL,
+  `rewardsNum` int(10) DEFAULT NULL,
+  `request` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`confNum`),
+  UNIQUE KEY `confNum_UNIQUE` (`confNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reservation`
+--
+
+LOCK TABLES `reservation` WRITE;
+/*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rewardsMember`
+--
+
+DROP TABLE IF EXISTS `rewardsMember`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rewardsMember` (
+  `rewardsNum` int(10) NOT NULL,
+  `fName` varchar(45) NOT NULL,
+  `lName` varchar(45) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phoneNum` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`rewardsNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rewardsMember`
+--
+
+LOCK TABLES `rewardsMember` WRITE;
+/*!40000 ALTER TABLE `rewardsMember` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rewardsMember` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rooms`
+--
+
+DROP TABLE IF EXISTS `rooms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rooms` (
+  `roomNum` int(3) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `confNum` int(10) DEFAULT NULL,
+  `roomType` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`roomNum`),
+  UNIQUE KEY `roomNum_UNIQUE` (`roomNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rooms`
+--
+
+LOCK TABLES `rooms` WRITE;
+/*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
+INSERT INTO `rooms` VALUES (101,'clean',NULL,'KING'),(102,'clean',NULL,'KING'),(103,'clean',NULL,'KING'),(104,'clean',NULL,'KING'),(105,'clean',NULL,'KING'),(106,'clean',NULL,'DOUBLE'),(107,'clean',NULL,'DOUBLE'),(108,'clean',NULL,'DOUBLE'),(109,'clean',NULL,'DOUBLE'),(110,'clean',NULL,'DOUBLE'),(201,'clean',NULL,'KING'),(202,'clean',NULL,'KING'),(203,'clean',NULL,'KING'),(204,'clean',NULL,'KING'),(205,'clean',NULL,'KING'),(206,'clean',NULL,'DOUBLE'),(207,'clean',NULL,'DOUBLE'),(208,'clean',NULL,'DOUBLE'),(209,'clean',NULL,'DOUBLE'),(210,'clean',NULL,'DOUBLE'),(301,'clean',NULL,'KING'),(302,'clean',NULL,'KING'),(303,'clean',NULL,'KING'),(304,'clean',NULL,'KING'),(305,'clean',NULL,'KING'),(306,'clean',NULL,'DOUBLE'),(307,'clean',NULL,'DOUBLE'),(308,'clean',NULL,'DOUBLE'),(309,'clean',NULL,'DOUBLE'),(310,'clean',NULL,'DOUBLE'),(401,'clean',NULL,'KING'),(402,'clean',NULL,'KING'),(403,'clean',NULL,'KING'),(404,'clean',NULL,'KING'),(405,'clean',NULL,'KING'),(406,'clean',NULL,'DOUBLE'),(407,'clean',NULL,'DOUBLE'),(408,'clean',NULL,'DOUBLE'),(409,'clean',NULL,'DOUBLE'),(410,'clean',NULL,'DOUBLE'),(501,'clean',NULL,'KING'),(502,'clean',NULL,'KING'),(503,'clean',NULL,'KING'),(504,'clean',NULL,'KING'),(505,'clean',NULL,'KING'),(506,'clean',NULL,'DOUBLE'),(507,'clean',NULL,'DOUBLE'),(508,'clean',NULL,'DOUBLE'),(509,'clean',NULL,'DOUBLE'),(510,'clean',NULL,'DOUBLE');
+/*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-09-23 16:47:20
