@@ -1,9 +1,10 @@
 package application;
 
+//Jedrik's commit. blah blah
 //matt	
 //test2 natt
 
-//leran	
+//leran
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
