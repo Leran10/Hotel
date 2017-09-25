@@ -1,11 +1,20 @@
 package application;
 
+<<<<<<< HEAD
+// Jedrik's commit. blah blah
+=======
 //Jedrik's commit. blah blah
+>>>>>>> branch 'master' of https://github.com/vexusia/HotelManagementSystem.git
 //matt	
+<<<<<<< HEAD
+//test2 natt
+
+=======
 //test2 natt
 //testmatt $
 //leran
 //test3 mTT
+>>>>>>> branch 'master' of https://github.com/vexusia/HotelManagementSystem.git
 //leran	
 //omar commenting
 
