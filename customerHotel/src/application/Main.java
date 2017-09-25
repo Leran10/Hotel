@@ -1,25 +1,6 @@
 package application;
 
-<<<<<<< HEAD
-
-// Jedrik's commit. blah blah
-
-//Jedrik's commit. blah blah
-
-//matt	
-//mt
-//test2 natt
-
-//test2 natt
-//testmatt $
-//leran
-//test3 mTT
-
-//leran	
-//omar commenting
-=======
-//I deleted most of the comments
->>>>>>> branch 'master' of https://github.com/vexusia/HotelManagementSystem.git
+//matt edited
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
