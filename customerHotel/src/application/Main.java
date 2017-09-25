@@ -22,6 +22,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
+			// Jedrik edited
+			
 			DropShadow shadow = new DropShadow();
 			
 			Text t1 = new Text();
