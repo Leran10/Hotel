@@ -1,6 +1,6 @@
 package application;
 
-// Jedrik's commit. blah blasdf
+// Jedrik's commit. blah blah
 //matt	
 //test2 natt
 
