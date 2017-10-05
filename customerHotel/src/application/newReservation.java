@@ -1,16 +1,23 @@
 package application;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -31,17 +38,27 @@ public class newReservation
 	 */
 	
 	
-	
-	
-	
-	
+
 	public newReservation (Stage ps)
 	{
-		Text t1 = new Text();
-		t1.setFont(Font.font("Calibri Light",20));
-		t1.setX(45); 
-		t1.setY(30); 
-		t1.setText("test ");
+		
+		BorderPane root = new BorderPane();
+		root.setPadding(new Insets(25));
+		
+		GridPane gridpane = new GridPane();    
+	    // gridPane.setMinSize(500, 500); 
+		gridpane.setAlignment(Pos.CENTER); 
+	    gridpane.setVgap(19); 
+	    gridpane.setHgap(30);  
+	    gridpane.setPadding(new Insets(25, 25, 25, 25)); 
+	    
+	    gridpane.setLayoutX(40);
+	    gridpane.setLayoutY(55);
+	      
+	    
+		Text sceneTitle = new Text("Welcome");
+		sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+		gridpane.add(sceneTitle,0,0,2,1);
 		
 		Line line = new Line(); 
 		line.setStartX(40); 
@@ -49,42 +66,51 @@ public class newReservation
 		line.setEndX(460); 
 		line.setEndY(40);
 		
-		Text testText = new Text("text");
-		TextField fieldTest = new TextField(); 
+		DatePicker ci = new DatePicker();
+		DatePicker co = new DatePicker();
 		
-		 
-		GridPane gridPane = new GridPane();    
-	    // gridPane.setMinSize(500, 500); 
-	    gridPane.setPadding(new Insets(10, 10, 10, 10));  
-	    gridPane.setVgap(19); 
-	    gridPane.setHgap(30);   
-	     
-	    gridPane.setLayoutX(40);
-	    gridPane.setLayoutY(55);
-	     
-	    gridPane.setAlignment(Pos.CENTER); 
-	     
-	    Label space = new Label();
-	    space.setText("                                           ");
-	     
-	    gridPane.add(testText, 0, 0); 
-	    gridPane.add(space, 1, 0);      //this probably seems weird but its adding space between the left [0] and right [2] columns  
-	    gridPane.add(fieldTest, 2, 0); 
-	     
+		Label checkIn = new Label("Checkin date");
+		gridpane.add(checkIn, 0, 1);
+		gridpane.add(ci, 1, 1);
 		
-	     
-	    ///////////////////////////////////////////////
-	     
-	     
-	    Group root = new Group();
-		ObservableList<Node> list = root.getChildren(); 
-	
-			
-		list.addAll(gridPane,t1,line);       
+		Label checkOut = new Label("Checkout date");
+		gridpane.add(checkOut, 0, 2);
+		gridpane.add(co, 1, 2);
+		
+		Button btn1 = new Button("Home");
+		HBox hb1 = new HBox();
+		hb1.setAlignment(Pos.TOP_LEFT);
+		hb1.getChildren().add(btn1);
+		root.setTop(hb1);
+		
+		btn1.setOnAction(new EventHandler<ActionEvent>() 
+		{
+		    public void handle(ActionEvent e) 
+		    {
+		    
+		    }
+		 } );
 
-		Scene s1 = new Scene(root,500,550);	
-		ps.setScene(s1);
-		ps.show();
+		Button btn2 = new Button("Continue");
+		HBox hb2 = new HBox();
+		hb2.setAlignment(Pos.BOTTOM_RIGHT);
+		hb2.getChildren().add(btn2);
+		root.setBottom(hb2);
+	
+		btn2.setOnAction(new EventHandler<ActionEvent>() 
+		{
+		    public void handle(ActionEvent e) 
+		    {
+		      new chooseRoom(ps);
+		    }
+		 } );
+		
+
+		root.setCenter(gridpane);
+	    
+ 
+		Scene scene = new Scene(root,500,550);
+		ps.setScene(scene);
 	     
 	}
 }

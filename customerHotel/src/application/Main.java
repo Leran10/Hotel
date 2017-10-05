@@ -20,9 +20,7 @@ import javafx.scene.text.Text;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		try {//leran
-			
-			// Jedrik edited
+		try {
 			
 			DropShadow shadow = new DropShadow();
 			
@@ -86,7 +84,8 @@ public class Main extends Application {
 			{
 			    public void handle(ActionEvent e) 
 			    {
-			       //next screen action
+			       new viewRes(primaryStage);
+			       
 			    }
 			 } );
 		
@@ -118,7 +117,7 @@ public class Main extends Application {
 			{
 			    public void handle(ActionEvent e) 
 			    {
-			       //next screen action
+			       new member(primaryStage);
 			    }
 			 } );
 			
@@ -148,7 +147,7 @@ public class Main extends Application {
 			{
 			    public void handle(ActionEvent e) 
 			    {
-			       //next screen action
+			       new join(primaryStage);
 			    }
 			 } );
 			
