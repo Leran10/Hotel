@@ -72,6 +72,7 @@ public class newReservation
 		Label checkIn = new Label("Checkin date");
 		gridpane.add(checkIn, 0, 1);
 		gridpane.add(ci, 1, 1);
+
 		
 		Label checkOut = new Label("Checkout date");
 		gridpane.add(checkOut, 0, 2);

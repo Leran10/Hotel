@@ -1,5 +1,12 @@
 package hotelServer;
 
+/*
+ * If you get a cannot find hotelServer.server error, edit buildpath and delete the unused jdbc mysql 
+ * .jar file. Replace it with one on your local machine. This is an inherent error as jdbc will not
+ * pull from git as initially planned.
+ *  
+ */
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

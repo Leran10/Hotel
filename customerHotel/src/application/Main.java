@@ -19,8 +19,13 @@ import javafx.scene.text.Text;
 
 public class Main extends Application {
 	@Override
+
 	public void start(Stage primaryStage) {
 		try {
+
+	//public void start(Stage primaryStage) {
+	//	try { 
+
 			
 			DropShadow shadow = new DropShadow();
 			
@@ -38,7 +43,7 @@ public class Main extends Application {
 			b1.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 				    new EventHandler<MouseEvent>() {
 				        @Override public void handle(MouseEvent e) {
-				            b1.setEffect(shadow);
+				        //    b1.setEffect(shadow);
 				            //b1.setStyle(" -fx-border-color: white; -fx-body-color: white  ; ");
 				            b1.setStyle(" -fx-border-color: darkslateblue; -fx-body-color: aliceblue  ; "); 
 				        }
@@ -68,7 +73,7 @@ public class Main extends Application {
 			b2.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 				    new EventHandler<MouseEvent>() {
 				        @Override public void handle(MouseEvent e) {
-				            b2.setEffect(shadow);
+				          //  b2.setEffect(shadow);
 				            b2.setStyle(" -fx-border-color: darkslateblue; -fx-body-color: aliceblue  ; "); 
 				        }
 				});
@@ -101,7 +106,7 @@ public class Main extends Application {
 			b3.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 				    new EventHandler<MouseEvent>() {
 				        @Override public void handle(MouseEvent e) {
-				        	b3.setEffect(shadow);
+				        //	b3.setEffect(shadow);
 				        	b3.setStyle(" -fx-border-color: darkslateblue; -fx-body-color: aliceblue  ; "); 
 				        }
 				});
@@ -131,7 +136,7 @@ public class Main extends Application {
 			b4.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 				    new EventHandler<MouseEvent>() {
 				        @Override public void handle(MouseEvent e) {
-				        	b4.setEffect(shadow);
+				        	//b4.setEffect(shadow);
 				        	b4.setStyle(" -fx-border-color: darkslateblue; -fx-body-color: aliceblue  ; "); 
 				        }
 				});
